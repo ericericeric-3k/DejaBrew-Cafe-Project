@@ -1,0 +1,218 @@
+.altwelcome {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.altwelcome__flex {
+    display: flex;
+    gap: 0.7rem;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.altwelcome__wrapper {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    border: 2px solid var(--clr-lightBrown);
+    border-radius: 25px;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+}
+
+.altwelcome__img {
+    background-image: url(../../public/welcome_bg.png);
+    background-position: center;
+    background-repeat: none;
+    background-position: none;
+    background-size: cover;
+    height: 23.875rem;
+    position: relative;
+    /* filter: blur(1px); */
+}
+
+.altwelcome__imgfilter {
+    border-radius: 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(1px) brightness(60%);
+    z-index: 1;
+}
+
+.altwelcome__banner {
+    font-family: 'Satoshi';
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: var(--size-5xl);
+    letter-spacing: -0.05em;
+    color: var(--clr-light);
+
+    align-self: center;
+    text-align: left;
+    position: relative;
+    z-index: 2;
+}
+
+.altwelcome__order-now {
+    color: var(--clr-lightBrown);
+    padding: 0.5rem;
+    background-color: var(--clr-gray);
+    border-radius: 25px;
+    height: 100%;
+}
+
+.altwelcome__order-now h2 {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    font-size: var(--size-4xl);
+
+}
+
+.altwelcome__order-now h2 svg{
+    height: 3rem;
+    width: auto;
+}
+
+.altwelcome__hr {
+    margin-top: 0.2rem;
+    margin-bottom: 0.5rem;
+    border-color: var(--clr-lightBrown);
+}
+
+.altwelcome__btn-contain {
+    display: flex;
+    justify-content: right;
+    margin: 0 auto;
+    width: 100%;
+    border-radius: 20px;
+    padding: 0.3rem;
+}
+
+.altwelcome__btn {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 7rem;
+    gap: 0.5rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+}
+
+
+.altwelcome h5 {
+    display: block;
+    font-size: var(--size-sm);
+}
+
+.altwelcome__btn svg{
+    display: block;
+    height: var(--size-xl);
+}
+
+
+
+/* xs */
+/* @media (min-width: 475px){} */
+
+/*  sm */
+@media (min-width: 640px){
+    .altwelcome__flex {
+        min-height: 35rem;
+    }
+
+    .altwelcome__wrapper{
+        flex: 1;
+    }
+
+    .altwelcome__img {
+        flex: 2;
+        height: auto;
+    }
+
+    .altwelcome__order-now {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+    }
+
+
+    .altwelcome__order-now h2 {
+        justify-content: center;
+        text-align: center;
+        font-size: var(--size-5xl);
+    }
+
+    .altwelcome__order-now h2 svg {
+        width: 9rem;
+        height: 9rem;
+    }
+
+    .altwelcome__btn-contain {
+        justify-content: center;
+    }
+}
+
+/*  lg */
+@media (min-width: 768px){
+    .altwelcome__banner {
+        font-size: var(--size-7xl);
+    }
+}
+
+/* xl  */
+@media (min-width: 1024px){
+    .altwelcome__banner {
+        font-size: var(--size-7xl);
+    }
+
+    .altwelcome__order-now h2 {
+        font-size: var(--size-7xl);
+    }
+}
+
+/* xxl */
+@media (min-width: 1280px){
+    .altwelcome__flex {
+        height: 41rem;
+    }
+
+    .altwelcome__banner {
+        font-size: var(--size-8xl);
+    }
+
+    .altwelcome__order-now h2 {
+        font-size: var(--size-8xl);
+    }
+
+    .altwelcome__order-now h2 svg {
+        height: 11rem;
+        width: 11rem;
+    }
+
+    .altwelcome__btn {
+        width: 10rem;
+        gap: 0.5rem;
+    }
+    
+    .altwelcome h5 {
+        font-size: var(--size-lg);
+    }
+    
+    .altwelcome__btn svg{
+        height: var(--size-3xl);
+        width: var(--size-3xl);
+    }
+}
+
+/* xxxl */
+/* @media (min-width: 1536px){} */

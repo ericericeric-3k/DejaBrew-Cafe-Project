@@ -1,0 +1,132 @@
+.visitUs {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    display: flex;
+    justify-content: center;
+}
+
+.visitUs__flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* background-color: var(--clr-strongyellow); */
+
+    gap: 1.5rem;
+}
+
+
+.visitUs__contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 20px;
+
+    gap: 1rem;
+    min-width: 19.5rem;
+
+    flex: 1;
+}
+
+
+.visitUs__header {
+    color: var(--clr-offsetLight);
+    font-size: var(--size-5xl);
+    font-family: 'Merriweather sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.1em;
+    text-transform: uppercase;
+
+    display: flex;
+    gap: 0.1rem;
+    padding: 0;
+}
+
+.visitUs__header svg {
+    height: calc(1em + 0.4rem);
+    width: calc(1em + 0.4rem);
+}
+
+.visitUs__infolist {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    font-size: var(--size-sm);
+    color: var(--clr-slate900);
+}
+
+.visitUs__mapborder {
+    padding: 0.5rem;
+    border-radius: 20px;
+    border: 2px solid var(--clr-gray);
+}
+
+.visitUs__map {
+    min-width: 19.5rem;
+    min-height: 19.5rem;
+    position: relative;
+    overflow-x: hidden;
+    flex: 1.5;
+}
+
+.visitUs__map iframe {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+}
+
+
+
+/* xs */
+/* @media (min-width: 475px){} */
+
+/*  sm */
+@media (min-width: 640px){
+    .visitUs__header {
+        font-size: var(--size-6xl);
+    }
+
+    .visitUs__infolist {
+        font-size: var(--size-base);
+    }
+}
+
+/*  lg */
+@media (min-width: 768px){
+    .visitUs__header {
+        font-size: var(--size-7xl);
+    }
+
+    .visitUs__infolist {
+        font-size: var(--size-lg);
+    }
+}
+
+/* xl  */
+@media (min-width: 1024px){
+    .visitUs__flex {
+        width: 51rem;
+    }
+
+    .visitUs__map {
+        height: 24.375rem;
+        width: 24.375rem;
+    }
+}
+
+/* xxl */
+@media (min-width: 1280px){
+    .visitUs__flex {
+        max-width: 61rem;
+    }
+}
+
+/* xxxl */
+/* @media (min-width: 1536px){} */

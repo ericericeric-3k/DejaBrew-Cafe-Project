@@ -1,0 +1,126 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+    padding-top: 0.5rem;
+    padding-bottom: 0.3rem;
+
+    background-color: var(--clr-lightBrown);
+
+    border-bottom: 1px solid var(--clr-lightBrown);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+    min-width: 19.94rem;
+    position: relative;
+
+}
+
+.header__component {
+    flex: 1;
+}
+
+a.header__component {
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+}
+
+nav.header__component {
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+    margin-left: auto;
+}
+
+.header__logo {
+    display: inline-block;
+    height: 2.6rem;
+}
+
+.header__menu {
+    display: none;
+    align-items: center;
+    list-style: none;
+    padding: 1rem;
+    gap: 1.5rem;
+}
+
+.header__link {
+    font-size: var(--size-sm);
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--clr-gray);
+    letter-spacing: -0.05em;
+}
+
+.header__line {
+    border: 1px solid var(--clr-gray);
+    padding-top: 1.5em;
+}
+
+.header__mobileBar {
+    display: flex;
+    z-index: 999;
+}
+
+.header__mobileBar svg {
+    display: block;
+    height: 2.8rem;
+    color: var(--clr-gray);
+}
+
+
+
+/* xs */
+@media (min-width: 475px){
+    .header {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+}
+
+/* sm */
+@media (min-width: 640px){
+    .header__mobileBar {
+        display: none;
+    }
+
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .header__menu {
+        display: flex;
+        padding-left: 0;
+    }
+
+}
+
+/* lg */ 
+@media (min-width: 768px){
+
+    .header__logo {
+        height: 5rem;
+    }
+}
+
+/* xl */
+@media (min-width: 1024px){
+    .header__link {
+        font-size: var(--size-base);
+    }
+}
+
+/*  xxl */
+@media (min-width: 1280px){
+    .header__link {
+        font-size: var(--size-lg);
+    }
+}
+
+/* xxxl */
+/* @media (min-width: 1536px){} */
