@@ -1,0 +1,60 @@
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+
+    30% {
+        transform: translateY(1px);
+    }
+
+    68% {
+        transform: translateY(-10px);
+    }
+
+    70% {
+        transform: translateY(1px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.animate {
+    animation: jump 1s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.delay1 {
+    animation-delay: 0.1s;
+}
+
+.delay2 {
+    animation-delay: 0.2s;
+}
+
+.delay3 {
+    animation-delay: 0.3s;
+}
+
+.delay4 {
+    animation-delay: 0.5s;
+}
+
+.delay5 {
+    animation-delay: 0.7s;
+}
+
+.delay6 {
+    animation-delay: 0.8s;
+}
+
+.delay7 {
+    animation-delay: 0.9s;
+}
+
+/* .itemSelect__order-now h2 {
+    display: inline-block;
+} */
+
+

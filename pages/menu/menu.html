@@ -1,0 +1,1812 @@
+<!-- Created by John Erick Camota -->
+<!-- Block and Yr: BSIT-2A -->
+<!-- Can accomodate screenwidths from 320px to 1440px
+  sw = screenwidth;
+  (sw >= 320px && sw < 1440px)
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="../../public/footer_logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,600,700&f[]=satoshi@300,400,500,700,900,901,1&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=merriweather-sans@400,500,600,700,800&display=swap" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="../../styles/modern_normalize.css">
+     <link rel="stylesheet" type="text/css" href="../../styles/style.css">
+     <link rel="stylesheet" type="text/css" href="../../styles/header.css">
+     <link rel="stylesheet" type="text/css" href="./components/itemSelect.css">
+     <link rel="stylesheet" type="text/css" href="./components/foodOptions.css">
+     <link rel="stylesheet" type="text/css" href="../../styles/footer.css">
+     <link rel="stylesheet" type="text/css" href="../../styles/mobile_navigation.css">
+     <link rel="stylesheet" type="text/css" href="./components/animate.css">
+     <link rel="stylesheet" type="text/css" href="./components/cartcontainer.css">
+     <link rel="stylesheet" type="text/css" href="../../styles/util.css">
+    <title>trial1</title>
+  </head>
+  <body>
+    <div id="filter" class="body-filter"></div>
+
+    <!-- cartdisplay -->
+        <div class="cart_container cart_hide loading">
+          <div class="cart_header">
+            <h2>
+              Your Cart
+            </h2>
+            <button class="cart_exit">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>      
+          </div>
+          <hr class="cart_hr" />
+          <div class="cart_inner">
+            <ul class="cart_list">
+              <li class="cart_item display_default lazycontainer noOrder">
+                  <strong>No Orders</strong>
+              </li>
+            </ul>
+          </div>
+          <hr class="cart_hr" />
+          <div class="cart_submit">
+            <ul class="cart_total">
+              <li class="total_list">Total: </li>
+              <li class="total_list" aria-placeholder="Php 0"><strong class="totalPrice"></strong></li>
+            </ul>
+            <button class="btn cart_submitbtn">
+              Submit Order
+            </button>
+          </div>
+        </div>
+    
+
+    <header class="header container">
+     <a class="header__component" href="../../index.html"> <img class="header__logo" src="../../public/logo_dejabrew.png" alt="logo"></a>
+      <nav class="header__component">
+        <ul class="header__menu">
+          <li>
+            <a class="header__link" href="../../index.html">Home</a>
+          </li>
+          <li class="header__line"></li>
+          <li>
+            <a class="header__link" href="../../index.html#about">About us</a>
+          </li>
+          <li class="header__line"></li>
+          <li>
+            <a class="header__link" href="../../index.html#visitUs">Contact</a>
+          </li>
+        </ul>
+        <button id="navbar-icon" class="header__mobileBar">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>            
+        <button>
+      </nav>
+    
+<!-- mobile -->
+      <div id="mobile_navigation" class="mobilenav_container loading">
+        <div class="bg_color">
+          <nav>
+            <ul>
+              <li>
+                <a href="../../index.html">Home</a>
+              </li>
+              <li>
+                <a href="../../index.html#about">About Us</a>
+              </li>
+              <li>
+                <a href="../../index.html#visitUs">Contact</a>
+              </li>
+            </ul>
+          </nav>
+          <hr/>
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" xml:space="preserve"><path fill="#F4F4F4" d="M1910.736 1037.349h89.125c19.801-14.003 32.763-37.034 32.763-63.129v-61.765h-154.652v61.765c.001 26.095 12.966 49.126 32.764 63.129z"/><path fill="#F9F9F9" d="M1897.121 974.22v-61.765h-19.148v61.765c0 26.095 12.965 49.126 32.763 63.129h19.148c-19.797-14.003-32.763-37.034-32.763-63.129z"/><path fill="#F4F4F4" d="M1893.717 1065.75h156.061c15.685 0 28.399-12.713 28.399-28.401h-212.865c0 15.688 12.714 28.401 28.405 28.401z"/><path fill="#F9F9F9" d="M1886.651 1037.349h-21.339c0 15.688 12.714 28.401 28.405 28.401h21.339c-15.691 0-28.405-12.713-28.405-28.401z"/><path fill="#F4F4F4" d="M2052.963 924.359h-20.339v12.094h20.339a6.48 6.48 0 0 1 6.469 6.233l-6.014 62.241a6.264 6.264 0 0 0-.027.582 6.484 6.484 0 0 1-6.475 6.478h-24.198a77.51 77.51 0 0 1-8.416 12.094h32.613c10.134 0 18.396-8.16 18.567-18.254l6.021-62.314c.021-.193.03-.387.03-.582 0-10.241-8.33-18.572-18.57-18.572z"/><path fill="#AA6148" d="M1980.356 998.753c-17.492 17.492-41.704 21.646-54.073 9.28-12.357-12.369-8.211-36.578 9.289-54.07 17.495-17.495 41.695-21.649 54.067-9.283 12.366 12.368 8.221 36.578-9.283 54.073z"/><path fill="#BC715C" d="M1943.512 961.9c15.573-15.578 36.448-20.542 49.57-12.726-.963-1.618-2.085-3.138-3.443-4.494-12.366-12.366-36.573-8.211-54.064 9.283-17.504 17.492-21.65 41.701-9.289 54.07 1.358 1.359 2.876 2.481 4.494 3.443-7.814-13.128-2.853-34.004 12.732-49.576z"/><path fill="#BC715C" d="M1931.518 1009.143c-.762 0-1.527-.009-2.297-.024a4.537 4.537 0 0 1-4.453-4.618 4.54 4.54 0 0 1 4.618-4.45c12.915.23 23.105.419 25.913-25.429 3.614-33.248 31.591-30.823 31.875-30.794a4.538 4.538 0 0 1 4.06 4.966c-.251 2.486-2.474 4.326-4.943 4.06-2.002-.165-19.394-.986-21.974 22.748-3.263 30.019-17.174 33.541-32.799 33.541z"/><g><path fill="#F4F4F4" d="M1955.299 905.394a4.535 4.535 0 0 1-4.535-4.535v-6.825c0-5.185-4.219-9.404-9.407-9.404h-17.138c-10.19 0-18.478-8.288-18.478-18.477v-4.007c0-10.188 8.288-18.477 18.478-18.477h58.334c5.188 0 9.407-4.219 9.407-9.405v-6.091a4.535 4.535 0 0 1 9.07 0v6.091c0 10.187-8.288 18.475-18.478 18.475h-58.334c-5.188 0-9.407 4.219-9.407 9.406v4.007c0 5.187 4.219 9.406 9.407 9.406h17.138c10.19 0 18.478 8.288 18.478 18.475v6.825a4.535 4.535 0 0 1-4.535 4.536z"/></g><g><path fill="#F9F9F9" d="M1998.007 834.264v-6.091a4.51 4.51 0 0 1 1.512-3.359 4.503 4.503 0 0 0-3.024-1.177 4.535 4.535 0 0 0-4.535 4.535v6.091c0 5.185-4.219 9.405-9.407 9.405h6.047c5.188 0 9.407-4.219 9.407-9.404zM1956.811 900.858v-6.825c0-5.185-4.219-9.404-9.407-9.404h-6.047c5.188 0 9.407 4.219 9.407 9.404v6.825a4.535 4.535 0 0 0 4.535 4.535c1.166 0 2.22-.453 3.024-1.177a4.504 4.504 0 0 1-1.512-3.358zM1911.788 866.152v-4.007c0-10.188 8.288-18.477 18.478-18.477h-6.047c-10.19 0-18.478 8.288-18.478 18.477v4.007c0 10.189 8.288 18.477 18.478 18.477h6.047c-10.19-.001-18.478-8.289-18.478-18.477z"/></g><g><path fill="#161616" d="M1999.861 1041.885h-89.125a4.53 4.53 0 0 1-2.619-.833c-21.714-15.36-34.68-40.343-34.68-66.832v-15.564a4.535 4.535 0 0 1 9.07 0v15.564c0 23.076 11.073 44.873 29.693 58.594h86.196c18.62-13.72 29.693-35.515 29.693-58.594v-57.23h-145.581v20.743a4.535 4.535 0 0 1-9.07 0v-25.278a4.535 4.535 0 0 1 4.535-4.535h154.652a4.535 4.535 0 0 1 4.535 4.535v61.765c0 26.49-12.965 51.475-34.68 66.832a4.527 4.527 0 0 1-2.619.833z"/><path fill="#161616" d="M2049.777 1070.286H1944.95a4.535 4.535 0 0 1 0-9.07h104.828c11.607 0 21.307-8.331 23.433-19.33h-202.932c2.126 10.999 11.829 19.33 23.439 19.33h30.31a4.535 4.535 0 0 1 0 9.07h-30.31c-18.162 0-32.941-14.776-32.941-32.936a4.535 4.535 0 0 1 4.535-4.535h212.865a4.535 4.535 0 0 1 4.535 4.535c0 18.16-14.775 32.936-32.935 32.936zM2046.916 1028.617h-32.613a4.539 4.539 0 0 1-4.116-2.629 4.539 4.539 0 0 1 .655-4.839 73.019 73.019 0 0 0 7.925-11.387 4.533 4.533 0 0 1 3.951-2.309h24.198c1.069 0 1.94-.871 1.94-1.943 0-.334.015-.664.044-.995l5.979-61.873a1.954 1.954 0 0 0-1.916-1.652h-20.339a4.535 4.535 0 0 1-4.535-4.535v-12.094a4.535 4.535 0 0 1 4.535-4.535h20.339c12.741 0 23.105 10.366 23.105 23.108 0 .356-.018.71-.056 1.063l-6 62.1c-.313 12.435-10.632 22.52-23.096 22.52zm-23.524-9.071h23.524c7.609 0 13.904-6.189 14.031-13.795.003-.12.009-.241.021-.359l6.021-62.314c.009-7.887-6.286-14.183-14.025-14.183h-15.803v3.024h15.803c5.95 0 10.783 4.656 11.002 10.602.006.201 0 .403-.018.602l-6.015 62.24c-.006 6.218-4.946 11.16-11.017 11.16h-21.596a83.031 83.031 0 0 1-1.928 3.023zM1955.299 905.393a4.535 4.535 0 0 1-4.535-4.535v-6.825c0-5.185-4.219-9.404-9.407-9.404h-17.138c-10.19 0-18.478-8.288-18.478-18.477v-4.007c0-10.188 8.288-18.477 18.478-18.477h58.334c5.188 0 9.407-4.219 9.407-9.404v-6.091a4.535 4.535 0 0 1 9.07 0v6.091c0 10.187-8.288 18.475-18.478 18.475h-58.334c-5.188 0-9.407 4.219-9.407 9.406v4.007c0 5.187 4.219 9.406 9.407 9.406h17.138c10.19 0 18.478 8.288 18.478 18.475v6.825a4.535 4.535 0 0 1-4.535 4.535zM1944.944 1019.512c-8.48 0-16.213-2.721-21.865-8.37-14.117-14.129-9.948-41.263 9.289-60.488 9.115-9.117 20.265-15.19 31.393-17.101 11.699-2.009 22.03.765 29.084 7.819 7.054 7.053 9.833 17.383 7.825 29.087-1.907 11.13-7.981 22.281-17.102 31.399-11.533 11.537-25.916 17.654-38.624 17.654zm26.019-77.521c-1.819 0-3.712.167-5.666.502-9.295 1.596-18.711 6.772-26.515 14.576-15.703 15.691-19.869 37.071-9.286 47.66 10.577 10.574 31.96 6.415 47.66-9.283 7.804-7.804 12.98-17.222 14.578-26.518 1.494-8.721-.387-16.228-5.3-21.141-3.811-3.81-9.182-5.796-15.471-5.796z"/><path fill="#161616" d="M1931.473 1009.043c-.765 0-1.53-.009-2.3-.024a4.538 4.538 0 0 1-4.453-4.617c.05-2.505 2.153-4.574 4.618-4.451 12.933.233 23.105.422 25.916-25.429 3.617-33.255 31.582-30.815 31.875-30.794a4.536 4.536 0 0 1 4.057 4.968 4.531 4.531 0 0 1-4.943 4.06c-2.002-.176-19.391-.989-21.971 22.746-3.266 30.02-17.176 33.541-32.799 33.541z"/></g><g><path fill="#F4F4F4" d="M88.992 240.388h89.125c19.801-14.003 32.763-37.035 32.763-63.129v-61.765H56.229v61.765c0 26.095 12.965 49.126 32.763 63.129z"/><path fill="#F9F9F9" d="M75.377 177.259v-61.765H56.229v61.765c0 26.095 12.965 49.126 32.763 63.129h19.148c-19.797-14.003-32.763-37.034-32.763-63.129z"/><path fill="#F4F4F4" d="M71.973 268.789h156.061c15.685 0 28.399-12.713 28.399-28.401H43.568c0 15.688 12.714 28.401 28.405 28.401z"/><path fill="#F9F9F9" d="M64.907 240.388H43.568c0 15.688 12.715 28.401 28.405 28.401h21.339c-15.691 0-28.405-12.713-28.405-28.401z"/><path fill="#F4F4F4" d="M231.219 127.398h-20.338v12.094h20.338a6.48 6.48 0 0 1 6.469 6.233l-6.015 62.241a6.264 6.264 0 0 0-.027.582 6.484 6.484 0 0 1-6.475 6.478h-24.197a77.572 77.572 0 0 1-8.415 12.094h32.613c10.134 0 18.396-8.16 18.567-18.254l6.021-62.314c.021-.193.03-.387.03-.582-.001-10.241-8.331-18.572-18.571-18.572z"/><path fill="#AA6148" d="M158.612 201.792c-17.492 17.492-41.704 21.646-54.073 9.28-12.357-12.369-8.212-36.578 9.289-54.07 17.495-17.495 41.695-21.649 54.067-9.283 12.366 12.368 8.22 36.578-9.283 54.073z"/><path fill="#BC715C" d="M121.768 164.938c15.573-15.578 36.448-20.542 49.57-12.726-.963-1.618-2.085-3.138-3.443-4.494-12.366-12.366-36.572-8.212-54.064 9.283-17.504 17.492-21.65 41.701-9.289 54.07 1.358 1.358 2.876 2.481 4.494 3.443-7.814-13.127-2.853-34.003 12.732-49.576z"/><path fill="#BC715C" d="M109.774 212.182c-.762 0-1.527-.009-2.297-.024a4.537 4.537 0 0 1-4.453-4.618 4.539 4.539 0 0 1 4.618-4.45c12.915.23 23.105.419 25.913-25.429 3.614-33.248 31.591-30.823 31.875-30.794a4.538 4.538 0 0 1 4.06 4.966c-.251 2.486-2.475 4.326-4.943 4.06-2.002-.165-19.394-.986-21.974 22.748-3.263 30.019-17.174 33.541-32.799 33.541z"/><g><path fill="#F4F4F4" d="M133.555 108.432a4.535 4.535 0 0 1-4.535-4.535v-6.825c0-5.185-4.219-9.404-9.407-9.404h-17.138c-10.19 0-18.478-8.288-18.478-18.477v-4.007c0-10.188 8.288-18.477 18.478-18.477h58.334c5.188 0 9.407-4.219 9.407-9.405v-6.091a4.536 4.536 0 0 1 9.07 0v6.091c0 10.187-8.288 18.475-18.478 18.475h-58.334c-5.188 0-9.407 4.219-9.407 9.406v4.007c0 5.187 4.219 9.406 9.407 9.406h17.138c10.19 0 18.478 8.288 18.478 18.475v6.825a4.535 4.535 0 0 1-4.535 4.536z"/></g><g><path fill="#F9F9F9" d="M176.263 37.302v-6.091a4.51 4.51 0 0 1 1.512-3.359 4.5 4.5 0 0 0-3.024-1.177 4.535 4.535 0 0 0-4.535 4.535v6.091c0 5.185-4.219 9.405-9.407 9.405h6.047c5.188.001 9.407-4.218 9.407-9.404zM135.067 103.897v-6.825c0-5.185-4.219-9.404-9.407-9.404h-6.047c5.188 0 9.407 4.219 9.407 9.404v6.825a4.536 4.536 0 0 0 4.535 4.535 4.508 4.508 0 0 0 3.024-1.177 4.507 4.507 0 0 1-1.512-3.358zM90.044 69.19v-4.007c0-10.188 8.288-18.477 18.478-18.477h-6.047c-10.19 0-18.478 8.288-18.478 18.477v4.007c0 10.189 8.288 18.477 18.478 18.477h6.047c-10.19 0-18.478-8.288-18.478-18.477z"/></g><g><path fill="#161616" d="M178.117 244.924H88.992a4.53 4.53 0 0 1-2.619-.833c-21.714-15.36-34.68-40.343-34.68-66.832v-15.564a4.535 4.535 0 0 1 9.07 0v15.564c0 23.076 11.073 44.873 29.693 58.594h86.196c18.62-13.72 29.693-35.515 29.693-58.594v-57.23H60.764v20.743a4.535 4.535 0 0 1-9.07 0v-25.278a4.535 4.535 0 0 1 4.535-4.535h154.652a4.535 4.535 0 0 1 4.535 4.535v61.765c0 26.49-12.965 51.475-34.68 66.832a4.527 4.527 0 0 1-2.619.833z"/><path fill="#161616" d="M228.033 273.324H123.205a4.535 4.535 0 0 1 0-9.07h104.828c11.607 0 21.307-8.331 23.433-19.33H48.534c2.126 10.999 11.829 19.33 23.439 19.33h30.31a4.535 4.535 0 0 1 0 9.07h-30.31c-18.162 0-32.941-14.775-32.941-32.936a4.535 4.535 0 0 1 4.535-4.535h212.865a4.535 4.535 0 0 1 4.535 4.535c.001 18.161-14.774 32.936-32.934 32.936zM225.172 231.655h-32.613a4.537 4.537 0 0 1-3.46-7.468 72.951 72.951 0 0 0 7.925-11.387 4.533 4.533 0 0 1 3.951-2.309h24.198c1.069 0 1.94-.871 1.94-1.943 0-.334.015-.664.044-.995l5.979-61.873a1.954 1.954 0 0 0-1.916-1.652h-20.338a4.535 4.535 0 0 1-4.535-4.535v-12.094a4.536 4.536 0 0 1 4.535-4.535h20.338c12.741 0 23.105 10.366 23.105 23.108 0 .356-.018.71-.056 1.063l-6 62.1c-.314 12.435-10.634 22.52-23.097 22.52zm-23.524-9.07h23.524c7.609 0 13.904-6.189 14.031-13.795.003-.12.009-.241.021-.359l6.021-62.314c.009-7.887-6.286-14.184-14.026-14.184h-15.803v3.024h15.803c5.95 0 10.783 4.657 11.002 10.602.006.201 0 .403-.018.602l-6.015 62.24c-.006 6.218-4.946 11.16-11.017 11.16h-21.596a80.882 80.882 0 0 1-1.927 3.024zM133.555 108.432a4.535 4.535 0 0 1-4.535-4.535v-6.825c0-5.185-4.219-9.405-9.407-9.405h-17.138c-10.19 0-18.478-8.288-18.478-18.477v-4.007c0-10.188 8.288-18.477 18.478-18.477h58.334c5.188 0 9.407-4.219 9.407-9.404V31.21a4.535 4.535 0 0 1 9.07 0v6.092c0 10.187-8.288 18.475-18.478 18.475h-58.334c-5.188 0-9.407 4.219-9.407 9.406v4.007c0 5.187 4.219 9.406 9.407 9.406h17.138c10.19 0 18.478 8.288 18.478 18.475v6.825a4.535 4.535 0 0 1-4.535 4.536zM123.2 222.551c-8.48 0-16.213-2.721-21.865-8.37-14.117-14.129-9.948-41.263 9.289-60.488 9.115-9.117 20.265-15.19 31.393-17.101 11.699-2.009 22.03.765 29.084 7.819 7.054 7.053 9.833 17.383 7.825 29.087-1.907 11.13-7.981 22.281-17.102 31.399-11.533 11.537-25.916 17.654-38.624 17.654zm26.019-77.521c-1.819 0-3.711.167-5.666.502-9.295 1.596-18.711 6.772-26.515 14.576-15.703 15.691-19.869 37.072-9.286 47.66 10.577 10.574 31.96 6.415 47.66-9.283 7.804-7.804 12.98-17.222 14.578-26.518 1.494-8.721-.387-16.228-5.3-21.141-3.811-3.81-9.182-5.796-15.471-5.796z"/><path fill="#161616" d="M109.729 212.082c-.765 0-1.53-.009-2.3-.024a4.538 4.538 0 0 1-4.453-4.617c.05-2.505 2.152-4.574 4.618-4.451 12.933.233 23.105.422 25.916-25.429 3.617-33.255 31.582-30.815 31.875-30.794a4.536 4.536 0 0 1 4.057 4.968 4.531 4.531 0 0 1-4.943 4.06c-2.002-.176-19.391-.989-21.971 22.746-3.266 30.02-17.176 33.541-32.799 33.541z"/></g></g></svg>
+          </div>
+        </div>
+      </div>
+
+  </header>
+    
+      <main>
+      
+      <section class="itemSelect container">
+        <div id="cart" class="itemSelect__cartbar container_border lazycontainer loading">
+          <button id="cartIcon" class="itemSelect__cartbtn">
+            <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+            </svg>
+          </a>
+          </button>
+        </div>
+      <div id="itemSeparator" class="itemSelect__separator"> <!-- separating cartIcon and the rest of the section items-->
+
+
+        <div id="itemCard" class="itemSelect__hide itemSelect__box container_border lazycontainer loading">
+<!-- item description -->
+          <div data-name="Americano" data-qty="1" data-price="99" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for coffee americano-->
+            <img class="itemSelect__img" src="../../public/coffee-americano.png" alt="americano">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Americano</h3>
+              <h4 class="itemSelect__price">Php 99.00</h4>
+              <ul class="itemSelect__variant">
+                <li>Hot</li>
+                <li class="itemSelect__dot"></li>
+                <li>8oz</li>
+              </ul>
+              <ul class="itemSelect__variant">
+                <li>Iced</li>
+                <li class="itemSelect__dot"></li>
+                <li>16oz</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-calorie</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>A bold, smooth blend that's as comforting as a deep breath on a crisp morning.
+                Déjà Brew's Americano is simplicity done right—a rich, full-bodied coffee that leaves you feeling grounded with every sip.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for coffee-->
+
+
+          <div data-name="Cappuccino" data-qty="1" data-price="105" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for coffee cappuccino-->
+            <img class="itemSelect__img" src="../../public/coffee-capuccino.png" alt="cappuccino">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Cappuccino</h3>
+              <h4 class="itemSelect__price">Php 105.00</h4>
+              <ul class="itemSelect__variant">
+                <li>Hot</li>
+                <li class="itemSelect__dot"></li>
+                <li>8oz</li>
+              </ul>
+              <ul class="itemSelect__variant">
+                <li>Iced</li>
+                <li class="itemSelect__dot"></li>
+                <li>16oz</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp" style="border-style: dashed;">low-calorie</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p> 
+                Light, foamy, and warm like a soft blanket. Our cappuccino is the perfect balance of robust espresso and airy milk froth, offering a velvety, nostalgic taste that's as cozy as home.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for coffee-->
+
+
+          <div data-name="Macchiato" data-qty="1" data-price="99" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for coffee macchiato-->
+            <img class="itemSelect__img" src="../../public/coffee-macchiato.png" alt="macchiato">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Macchiato</h3>
+              <h4 class="itemSelect__price">Php 99.00</h4>
+              <ul class="itemSelect__variant">
+                <li>Hot</li>
+                <li class="itemSelect__dot"></li>
+                <li>8oz</li>
+              </ul>
+              <ul class="itemSelect__variant">
+                <li>Iced</li>
+                <li class="itemSelect__dot"></li>
+                <li>16oz</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp" style="border-style: dashed;">low-calorie</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p> 
+                Strong yet delicate, our macchiato is the perfect midday pick-me-up. With a bold shot of espresso 'stained' with just a touch of milk, it brings a quick, focused burst of a familiar flavor.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for coffee-->
+
+
+          <div data-name="Cafè Latte" data-qty="1" data-price="99" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for coffee cafe latte-->
+            <img class="itemSelect__img" src="../../public/coffee-cafeLatte.png" alt="cafè_latte">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Cafè Latte</h3>
+              <h4 class="itemSelect__price">Php 99.00</h4>
+              <ul class="itemSelect__variant">
+                <li>Hot</li>
+                <li class="itemSelect__dot"></li>
+                <li>8oz</li>
+              </ul>
+              <ul class="itemSelect__variant">
+                <li>Iced</li>
+                <li class="itemSelect__dot"></li>
+                <li>16oz</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-calorie</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Smooth, creamy, and endlessly comforting, the café latte blends rich espresso with steamed milk to create a gentle, soothing drink. It’s a warm embrace in a cup, perfect for those quiet moments.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for coffee-->
+
+
+          <div data-name="Hazelnut Latte" data-qty="1" data-price="119" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for coffee hazelnut latte-->
+            <img class="itemSelect__img" src="../../public/coffee-hazelnutLatte.png" alt="hazelnut_latte">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Hazelnut Latte</h3>
+              <h4 class="itemSelect__price">Php 119.00</h4>
+              <ul class="itemSelect__variant">
+                <li>Hot</li>
+                <li class="itemSelect__dot"></li>
+                <li>8oz</li>
+              </ul>
+              <ul class="itemSelect__variant">
+                <li>Iced</li>
+                <li class="itemSelect__dot"></li>
+                <li>16oz</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp" style="border-style: dashed;">low sugar</li>
+                  <li class="dietOp" style="border-style: dashed;">low-calorie</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                A nutty twist on a classic. The Hazelnut Latte brings together the creamy warmth of steamed milk and the subtle sweetness of hazelnut, evoking the feeling of home with a delightful roasted aroma.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for coffee-->
+
+
+          <div data-name="Mocha Latte" data-qty="1" data-price="119" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for coffee mocha latte-->
+            <img class="itemSelect__img" src="../../public/coffee-mochaLatte.png" alt="mocha_latte">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Mocha Latte</h3>
+              <h4 class="itemSelect__price">Php 119.00</h4>
+              <ul class="itemSelect__variant">
+                <li>Hot</li>
+                <li class="itemSelect__dot"></li>
+                <li>8oz</li>
+              </ul>
+              <ul class="itemSelect__variant">
+                <li>Iced</li>
+                <li class="itemSelect__dot"></li>
+                <li>16oz</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp" style="border-style: dashed;">low-sugar</li>
+                  <li class="dietOp" style="border-style: dashed;">low-calorie</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Indulgent, rich, and decadent. The Mocha Latte is where bold espresso meets silky chocolate, blending into a sweet, comforting treat that feels like curling up by the fire with your favorite book.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for coffee-->
+
+
+          <div data-name="Strawberry Latte" data-qty="1" data-price="119" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for coffee strawberryLatte-->
+            <img class="itemSelect__img" src="../../public/coffee-strawberryLatte.png" alt="strawberry_latte">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Strawberry Latte</h3>
+              <h4 class="itemSelect__price">Php 119.00</h4>
+              <ul class="itemSelect__variant">
+                <li>Hot</li>
+                <li class="itemSelect__dot"></li>
+                <li>8oz</li>
+              </ul>
+              <ul class="itemSelect__variant">
+                <li>Iced</li>
+                <li class="itemSelect__dot"></li>
+                <li>16oz</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp" style="border-style: dashed;">gluten-free</li>
+                  <li class="dietOp" style="border-style: dashed;">low-calorie</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p> 
+                Bright, playful, and unexpected. This treat offers the perfect fusion of creamy milk, espresso, and the light sweetness of strawberries, like a breath of fresh air on a sunny morning.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for coffee-->
+
+
+          <div data-name="Vanilla Latte" data-qty="1" data-price="119" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for coffee vanilla latte-->
+            <img class="itemSelect__img" src="../../public/coffee-vanillaLatte.png" alt="vanilla_latte">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Vanilla Latte</h3>
+              <h4 class="itemSelect__price">Php 119.00</h4>
+              <ul class="itemSelect__variant">
+                <li>Hot</li>
+                <li class="itemSelect__dot"></li>
+                <li>8oz</li>
+              </ul>
+              <ul class="itemSelect__variant">
+                <li>Iced</li>
+                <li class="itemSelect__dot"></li>
+                <li>16oz</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp" style="border-style: dashed;">gluten-free</li>
+                  <li class="dietOp" style="border-style: dashed;">low-calorie</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Classic and timeless, the Vanilla Latte adds a touch of sweetness to a rich espresso base, creating a smooth, balanced drink. It’s like a familiar melody that never fails to make you smile.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for coffee-->
+          <!-- end of coffee-->
+          <!-- start of milktea-->
+
+          <div data-name="Cookies & Cream" data-qty="1"  data-price-L="59"  data-variant=""  data-price-S="49"  class="itemSelect__hide itemSelect__item"> <!-- for milktea-->
+            <img class="itemSelect__img" src="../../public/milktea-cookies&cream.png" alt="cookies_&_cream">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Cookies & Cream</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 59</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>22oz</li>
+              </ul>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price" style="font-size: calc(1em - 0.05rem);">Php 49</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>16oz</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-calorie</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                A creamy blend of rich, cookie flavors in a velvety milk tea, like dipping your favorite treats in milk. Comforting and nostalgic, it’s a sip of sweetness that brings out the kid in you.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for milktea-->
+
+
+
+          <div data-name="Wintermelon" data-qty="1" data-price-L="59" data-variant="" data-price-S="49" class="itemSelect__hide itemSelect__item"> <!-- for milktea wintermelon-->
+            <img class="itemSelect__img" src="../../public/milktea-wintermelon.png" alt="wintermelon">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Wintermelon</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 59</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>22oz</li>
+              </ul>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price" style="font-size: calc(1em - 0.05rem);">Php 49</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>16oz</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-calorie</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                With a honeyed sweetness and mellow taste, our Wintermelon milk tea is as refreshing as a cool breeze, bringing a touch of warmth with every sip—perfect for unwinding.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for milktea-->
+
+
+          <div data-name="Chocolate" data-qty="1" data-price-L="59" data-variant="" data-price-S="49" class="itemSelect__hide itemSelect__item"> <!-- for milktea chocolate-->
+            <img class="itemSelect__img" src="../../public/milktea-chocolate.png" alt="chocolate">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Chocolate</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 59</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>22oz</li>
+              </ul>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price" style="font-size: calc(1em - 0.05rem);">Php 49</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>16oz</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-calorie</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Rich, creamy, and irresistibly smooth, our Chocolate Milk Tea wraps you in a familiar embrace, a cozy treat that feels like pure bliss in every sip.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for milktea-->
+
+
+          <div data-name="Matcha Green" data-qty="1" data-price-L="59" data-variant="" data-price-S="49" class="itemSelect__hide itemSelect__item"> <!-- for milktea matcha green-->
+            <img class="itemSelect__img" src="../../public/milktea-matchaGreen.png" alt="matcha_green">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Matcha Green</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 59</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>22oz</li>
+              </ul>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price" style="font-size: calc(1em - 0.05rem);">Php 49</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>16oz</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-calorie</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Earthy, calming, and refreshingly smooth, this Matcha Green tea blend brings together the harmony of tradition with a modern twist, inviting you to slow down and savor.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for milktea-->
+
+
+          <div data-name="Okinawa" data-qty="1" data-price-L="59" data-variant="" data-price-S="49" class="itemSelect__hide itemSelect__item"> <!-- for milktea okinawa-->
+            <img class="itemSelect__img" src="../../public/milktea-okinawa.png" alt="">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Okinawa</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 59</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>22oz</li>
+              </ul>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price" style="font-size: calc(1em - 0.05rem);">Php 49</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>16oz</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-calorie</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Infused with a hint of brown sugar, our Okinawa milk tea offers a warm, caramel-like sweetness. It’s like finding a piece of home wherever you are.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for milktea-->
+          <!-- end of milktea-->
+          <!-- start of frappe -->
+
+          <div data-name="Hazelnut" data-qty="1" data-price="120" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for frappe hazelnut-->
+            <img class="itemSelect__img" src="../../public/frappe-hazelnut.png" alt="hazelnut">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Hazelnut</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 120</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>16oz</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-calorie</li>
+                  <li class="dietOp">low-sugar</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                A cool and creamy blend with a hint of nutty warmth, our Hazelnut Frappe is like taking a breath of fresh air in a quiet, sunlit grove.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for frappe-->
+
+
+          <div data-name="Cookies & Cream" data-qty="1" data-price="120" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for frappe cookies & cream-->
+            <img class="itemSelect__img" src="../../public/frappe-cookies&cream.png" alt="cookies_&_cream">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Cookies & Cream</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 120</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>16oz</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-calorie</li>
+                  <li class="dietOp">low-sugar</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Smooth and frosty, with a touch of crunch. The Cookies & Cream Frappe is a playful, dessert-like treat that feels like enjoying a summer day with old friends.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for frappe-->
+
+
+          <div data-name="Caramel Macchiato" data-qty="1" data-price="120" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for frappe-caramel macchiato-->
+            <img class="itemSelect__img" src="../../public/frappe-caramelMacchiato.png" alt="caramel_macchiato">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Caramel Macchiato</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 120</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>16oz</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-calorie</li>
+                  <li class="dietOp">low-sugar</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Layers of rich espresso and sweet caramel swirl together in this frappe, creating a drink as inviting and balanced as a cozy evening in.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for frappe-->
+
+
+          <div data-name="Vanilla" data-qty="1" data-price="120" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for frappe vanilla-->
+            <img class="itemSelect__img" src="../../public/frappe-vanilla.png" alt="vanilla">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Vanilla</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 120</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>16oz</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-calorie</li>
+                  <li class="dietOp">low-sugar</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Simple, classic, and endlessly comforting. Our Vanilla Frappe is like catching up with an old friend—sweet, smooth, and satisfying to the last sip.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for frappe-->
+
+
+          <div data-name="Mocha" data-qty="1" data-price="120" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for frappe-->
+            <img class="itemSelect__img" src="../../public/frappe-mocha.png" alt="mocha">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Mocha</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 120</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>16oz</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-calorie</li>
+                  <li class="dietOp">low-sugar</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Where chocolate meets coffee, our Mocha Frappe is a chilled indulgence that’s both energizing and sweet, like an afternoon treat made just for you.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for frappe-->
+          <!-- end of frappe-->
+          <!-- start of Baked goods-->
+
+          <div data-name="Mini Fruit Galettes" data-qty="1" data-price="40" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for bakedgoods-->
+            <img class="itemSelect__img" src="../../public/bakedgoods-minifruitGalettes.png" alt="mini_fruit_galettes">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Mini Fruit Galettes</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 40</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per serving</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-sugar</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                These bite-sized galettes are like a taste of summer in a flaky pastry, with sweet fruit filling wrapped in a golden crust. Perfect for a moment of sweetness.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for bakedgoods-->
+
+
+          <div data-name="Cinnammon Roll" data-qty="1" data-price="98" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for bakedgoods-->
+            <img class="itemSelect__img" src="../../public/bakedgoods-cinnamonRoll.png" alt="cinnamon_roll">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Cinnamon Roll</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 98</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per serving</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-sugar</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Warm, gooey, and spiced with love, our cinnamon roll feels like a warm hug from home. It’s the taste of comfort in every swirl.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for bakedgoods-->
+
+
+          <div data-name="Lemon Lavender Scones" data-qty="1" data-price="210" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for bakedgoods-->
+            <img class="itemSelect__img" src="../../public/bakedgoods-lemonlavenderScones.png" alt="lemon_lavender_scones">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Lemon Lavender Scones</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 210</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per serving</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-sugar</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Bright, floral, and delicately crumbly, these scones are like a garden in bloom, bringing a refreshing twist to your tea or coffee break.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for bakedgoods-->
+
+
+          <div data-name="Matcha Muffin" data-qty="1" data-price="89" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for bakedgoods-->
+            <img class="itemSelect__img" src="../../public/bakedgoods-matchaMuffin.png" alt="matcha_muffin">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Matcha Muffin</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 89</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per pc.</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-sugar</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Earthy, moist, and topped with a touch of sweetness, our Matcha Muffins are a peaceful, comforting treat, perfect for a moment of calm.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for bakedgoods-->
+
+
+          <div data-name="Chocolate Chip Brownies" data-qty="1" data-price="140" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for bakedgoods-->
+            <img class="itemSelect__img" src="../../public/bakedgoods-chocolatechipBrownies.png" alt="chocolate_chip_brownies">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Chocolate Chip Brownies</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 140</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per serving</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-sugar</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Rich and fudgy with pockets of melted chocolate, our brownies are indulgent, familiar, and impossible to resist—a true classic.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for bakedgoods-->
+          <!-- end of bakedgoods-->
+          <!-- start of lightmeals-->
+
+          <div data-name="Classic Club Sandwich" data-qty="1" data-price="89" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for lightmeal-->
+            <img class="itemSelect__img" src="../../public/lightmeal-classicclubSandwich.png" alt="classic_club_sandwich">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Classic Club Sandwich</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 89</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per pc.</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-sugar</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Layered with fresh ingredients and classic flavors, our Club Sandwich is hearty and satisfying—just like a perfect homemade lunch.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for lightmeal-->
+
+
+          <div data-name="Egg Salad Sandwich" data-qty="1" data-price="89" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for lightmeal-->
+            <img class="itemSelect__img" src="../../public/lightmeal-eggsaladSandwich.png" alt="egg_salad_sandwich">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Egg Salad Sandwich</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 89</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per pc.</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-sugar</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Creamy, seasoned to perfection, and served on soft bread, this Egg Salad Sandwich is like a picnic classic, simple yet delicious.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for lightmeal-->
+
+
+          <div data-name="Pesto Chicken Sandwich" data-qty="1" data-price="99" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for lightmeal-->
+            <img class="itemSelect__img" src="../../public/lightmeal-pestochickenSandwich.png" alt="pesto_chicken_sandwich">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Chicken Pesto Sandwich</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 99</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per pc.</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-sugar</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Herbaceous pesto meets tender chicken in a fresh, hearty sandwich that brings a taste of the Mediterranean to your plate.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for lightmeal-->
+
+
+          <div data-name="Avocado Toast Trio" data-qty="1" data-price="99" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for lightmeal-->
+            <img class="itemSelect__img" src="../../public/lightmeal-avocadotoastTrio.png" alt="avocado_toast_trio">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Avocado Toast Trio</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 99</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per serving</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-sugar</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                A trio of creamy, vibrant avocado toast with a variety of toppings to suit any mood—a deliciously healthy start to any day.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for lightmeal-->
+
+
+          <div data-name="Tuna Salad Lettuce Wrap" data-qty="1" data-price="130" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for lightmeal-->
+            <img class="itemSelect__img" src="../../public/lightmeal-tunasaladLettucewrap.png" alt="tuna_salad_lettuce_wrap">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Tuna Salad Lettuce Wrap</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 130</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per serving</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">high-protein</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Light, refreshing, and full of flavor, these wraps are a fresh twist on tuna salad, perfect for a satisfying yet wholesome meal.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for lightmeal-->
+          <!-- end of lightmeal-->
+          <!-- start of healthyOp-->
+
+
+          <div data-name="Caesar Salad" data-qty="1" data-price="160" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for healthyOp-->
+            <img class="itemSelect__img" src="../../public/healthyOp-caesarSalad.png" alt="caesar_salad">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Caesar Salad</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 160</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per serving</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-carb</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Crisp romaine, creamy dressing, and crunchy croutons come together in this classic salad that’s both hearty and fresh—like a comforting favorite you can count on.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for healthyOp-->
+
+
+          <div data-name="Garden Salad" data-qty="1" data-price="160" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for healthyOp-->
+            <img class="itemSelect__img" src="../../public/healthyOp-gardenSalad.png" alt="garden_salad">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Garden Salad</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 160</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per serving</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-carb</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                A colorful medley of fresh greens and veggies, our Garden Salad is a taste of the season’s best, perfect for a light, refreshing bite.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for healthyOp-->
+
+
+          <div data-name="Tofu Salad" data-qty="1" data-price="155" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for healthyOp-->
+            <img class="itemSelect__img" src="../../public/healthyOp-tofuSalad.png" alt="tofu_salad">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Tofu Salad</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 155</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per serving</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">high-protein</li>
+                  <li class="dietOp">low-carb</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Protein-packed and flavorful, our Tofu Salad combines tender tofu with crisp veggies for a satisfying, nutritious option.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for healthyOp-->
+
+
+          <div data-name="Whole Wheat Tuna Wrap" data-qty="1" data-price="169" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for healthyOp-->
+            <img class="itemSelect__img" src="../../public/healthyOp-wholewheatTunawrap.png" alt="whole_wheat_tuna_wrap">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Whole Wheat Tuna Wrap</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 169</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per serving</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-carb</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Nutty whole wheat wraps around savory tuna and fresh veggies, offering a filling, balanced meal that’s delicious and wholesome.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for healthyOp-->
+
+
+          <div data-name="Smoothie Bowl" data-qty="1" data-price="159" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for healthyOp-->
+            <img class="itemSelect__img" src="../../public/healthyOp-smoothieBowl.png" alt="smoothie_bowl">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Smoothie Bowl</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 159</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per serving</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-carb</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Vibrant and full of fruit, our Smoothie Bowl is a refreshing, colorful treat, brimming with flavor and a bit of crunch—just like a bowl of sunshine.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for healthyOp-->
+          <!-- end of healthyOp-->
+          <!-- start of snacks-->
+
+          <div data-name="Mini Beef Empanada" data-qty="1" data-price="75" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for snacks-->
+            <img class="itemSelect__img" src="../../public/snacks-miniBeefEmpanada.png" alt="mini_beef_empanada">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Mini Beef Empanada</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 75</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per pc.</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-carb</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Golden, flaky, and filled with savory beef, these mini empanadas are like a comforting bite of home-cooked goodness.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for snacks-->
+
+
+          <div data-name="Mini Macaron" data-qty="1" data-price="65" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for snacks-->
+            <img class="itemSelect__img" src="../../public/snacks-miniMacaron.png" alt="mini_macaron">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Mini Macarons</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 65</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per pc.</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-carb</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Light, crisp, and filled with delicate flavors, our mini macarons are a sweet indulgence that feels like a little celebration.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for snacks-->
+
+
+          <div data-name="Soft Pretzel Bites" data-qty="1" data-price="35" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for snacks-->
+            <img class="itemSelect__img" src="../../public/snacks-softpretzelBites.png" alt="soft_pretzel_bites">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Soft Pretzel Bites</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 35</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per pc.</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-carb</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Warm and perfectly chewy, these pretzel bites are a savory snack that’s as satisfying as sharing a laugh with friends.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for snacks-->
+
+
+          <div data-name="Crispy Baked Chickpeas" data-qty="1" data-price="75" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for snacks-->
+            <img class="itemSelect__img" src="../../public/snacks-crispybakedChickpeas.png" alt="crispy_baked_chickpeas">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Crispy Baked Chickpeas</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 75</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per serving</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-carb</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Crunchy and seasoned to perfection, these baked chickpeas are a healthy snack that’s light yet satisfying—a perfect pick-me-up.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for snacks-->
+
+
+          <div data-name="Almond Butter Rice Crispy Bars" data-qty="1" data-price="45" data-variant="" class="itemSelect__hide itemSelect__item"> <!-- for snacks-->
+            <img class="itemSelect__img" src="../../public/snacks-almondbutterRiceCrispyBars.png" alt="almond_butter_rice_crispy_bars">
+
+            <div class="itemSelect__attributes">
+              <h3 class="itemSelect__name">Almond Butter Rice Crispy Bars</h3>
+              <ul class="itemSelect__variant">
+                <li><h4 class="itemSelect__price">Php 45</h4></li>
+                <li class="itemSelect__dot"></li>
+                <li>per pc.</li>
+              </ul>
+              <div class="itemSelect__dietaryAttributes">
+                <ul class="itemSelect_dietOp">
+                  <li class="dietOp">gluten-free</li>
+                  <li class="dietOp">low-carb</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="itemSelect__about">
+              <p>
+                Nutty, chewy, and a little bit sweet, our Almond Butter Rice Crispy Bars are the perfect blend of wholesome and indulgent, like a treat you’d make at home.
+              </p>
+              <br/>
+            </div> <!-- end of itemSelect__about -->
+          </div> <!-- for snacks-->
+          <!-- end of snacks-->
+
+<!--end of item description -->
+        <div class="itemSelect__nonItemSpecific">
+          <hr class="itemSelect__nonItemSpecific_hr"/>
+<!-- item variant option-->
+          <div id="itemVariant1" class="itemSelect__hide itemSelect__varbtn"><!-- for Hot & Iced [coffee]-->
+            <ul class="itemSelect__variantbtn">
+              <li>
+                <button id="btnHot_Iced" class="itemSelect_btnInactive itemSelect_orderbtn ">Hot</button>
+              </li>
+              <li>
+                <button id="btnHot_Iced" class="itemSelect_btnInactive itemSelect_orderbtn ">Iced</button>
+              </li>
+            </ul>
+          </div>
+
+          <div id="itemVariant2" class="itemSelect__hide itemSelect__varbtn"> <!-- for size [milktea]-->
+            <ul class="itemSelect__variantbtn">
+              <li>
+                <button id="btn16oz_22oz" class="itemSelect_btnInactive itemSelect_orderbtn ">16oz</button>
+              </li>
+              <li>
+                <button id="btn16oz_22oz" class="itemSelect_btnInactive itemSelect_orderbtn ">22oz</button>
+              </li>
+            </ul>
+          </div>
+<!-- end of item variant option -->
+
+<!-- Order Qty and Add to cart -->
+          <div class="itemSelect__order">
+            <ul class="itemSelect__qtyContainer">
+              <li>
+                <button id="minus_item" class="itemSelect__addminus">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>                  
+                </button>
+              </li>
+              <li id="itemQty" class="itemSelect__qtyValue"></li>
+              <li>
+                <button id="add_item" class="itemSelect__addminus">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>                                    
+                </button>
+              </li>
+            </ul>
+            <button class="itemSelect__addtoCart">Add to Cart</button>
+          </div>
+<!-- end of Order Qty and Add to cart -->
+        </div>
+        </div> <!-- end of itemSelect__box -->
+        <!-- put the order-now container here-->
+        <div id="order-start" class="itemSelect__pre itemSelect__display  lazycontainer loading">
+          <div class="itemSelect__order-now">
+            <h2><span class="animate">O</span><span class="animate delay1">r</span><span class="animate delay2">d</span><span class="animate delay3">e</span><span class="animate delay4">r</span> <span class="animate delay5">N</span><span class="animate delay6">o</span><span class="animate delay7">w</span></h2>
+            <h3>Your next favorite is just a click away.</h3>
+             <br/>
+            <p>Open on Weekdays</p>
+            <p>10am to 4:30pm</p>
+          </div>
+        </div>
+
+        <div id="order-post" class="itemSelect__post  lazycontainer loading">
+          <div class="itemSelect__order-now">
+            <h2><span class="animate">O</span><span class="animate delay1">r</span><span class="animate delay2">d</span><span class="animate delay3">e</span><span class="animate delay4">r</span> <span class="animate delay5">N</span><span class="animate delay6">o</span><span class="animate delay7">w</span></h2>
+            <h3>Your next favorite is just a click away.</h3>
+             <br/>
+            <p>Open on Weekdays</p>
+            <p>10am to 4:30pm</p>
+          </div>
+        </div>
+
+      </div> <!-- end of itemSeparator -->
+      </section>
+
+      <section class="foodOption container">
+        <nav class="foodOption__foodnavParent"> <!-- 7 food options  -->
+          <ul class="foodOption__foodnav">
+            <li class="foodOption__foodnavItem">
+              <button id="toggle" class="clicked btn">Coffee</button>
+            </li>
+            <li class="foodOption__foodnavItem">
+              <button id="toggle" class="toggle btn">Milktea</button>
+            </li>
+            <li class="foodOption__foodnavItem">
+              <button id="toggle" class="toggle btn">Frappe</button>
+            </li>
+    <!--  -->
+            <li class="foodOption__foodnavItem">
+              <button id="toggle" class="toggle btn">Baked Goods</button>
+            </li>
+            <li class="foodOption__foodnavItem">
+              <button  id="toggle" class="toggle btn">Light Meals</button>
+            </li>
+            <li class="foodOption__foodnavItem">
+              <button  id="toggle" class="toggle btn">Healthy Options</button>
+            </li>
+            <li class="foodOption__foodnavItem">
+              <button id="toggle" class="toggle btn">Snacks</button>
+            </li>
+          </ul>
+        </nav>
+        <section class="foodOption__productsContainer">
+        <section class="coffee optionContainer">
+          <h3>Coffee</h3>
+          <hr/>
+          <div class="productlist productlist_scrollable">
+    
+              <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+                <div class="productImg__alt">
+                  <img class="productImg" src="../../public/coffee-americano.png" alt="americano">
+                </div>
+                
+                <div>
+                  <h4 class="productName">Americano</h4>
+                </div>
+              </div>
+    
+              <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+                <div class="productImg__alt">
+                  <img class="productImg" src="../../public/coffee-capuccino.png" alt="cappuccino">
+                </div>
+                
+                <div>
+                  <h4 class="productName">Cappuccino</h4>
+                </div>
+              </div>
+    
+              <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+                <div class="productImg__alt">
+                  <img class="productImg" src="../../public/coffee-macchiato.png" alt="macchiato">
+                </div>
+                
+                <div>
+                  <h4 class="productName">Macchiato</h4>
+                </div>
+              </div>
+    
+              <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+                <div class="productImg__alt">
+                  <img class="productImg" src="../../public/coffee-cafeLatte.png" alt="cafè_latte">
+                </div>
+                
+                <div>
+                  <h4 class="productName">Cafè Latte</h4>
+                </div>
+              </div>
+    
+              <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+                <div class="productImg__alt">
+                  <img class="productImg" src="../../public/coffee-hazelnutLatte.png" alt="hazelnut_latte">
+                </div>
+                
+                <div>
+                  <h4 class="productName">Hazelnut Latte</h4>
+                </div>
+              </div>
+    
+              <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+                <div class="productImg__alt">
+                  <img class="productImg" src="../../public/coffee-mochaLatte.png" alt="mocha_latte">
+                </div>
+                
+                <div>
+                  <h4 class="productName">Mocha Latte</h4>
+                </div>
+              </div>
+    
+              <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+                <div class="productImg__alt">
+                  <img class="productImg" src="../../public/coffee-strawberryLatte.png" alt="strawberry_latte">
+                </div>
+                
+                <div>
+                  <h4 class="productName">Strawberry Latte</h4>
+                </div>
+              </div>
+    
+              <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+                <div class="productImg__alt">
+                  <img class="productImg" src="../../public/coffee-vanillaLatte.png" alt="vanilla_latte">
+                </div>
+                
+                <div>
+                  <h4 class="productName">Vanilla Latte</h4>
+                </div>
+              </div>
+    
+          </div>
+        </section> <!-- end of coffee section -->
+
+        <section class="milktea optionContainer">
+          <h3>Milktea</h3>
+          <hr/>
+          <div class="productlist productlist_scrollable">
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/milktea-cookies&cream.png" alt="cookies_&_cream">
+              </div>
+              
+              <div>
+                <h4 class="productName">Cookies & Cream</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/milktea-wintermelon.png" alt="wintermelon">
+              </div>
+              
+              <div>
+                <h4 class="productName">Wintermelon</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/milktea-chocolate.png" alt="chocolate">
+              </div>
+              
+              <div>
+                <h4 class="productName">Chocolate</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/milktea-matchaGreen.png" alt="matcha_green">
+              </div>
+              
+              <div>
+                <h4 class="productName">Matcha Green</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/milktea-okinawa.png" alt="okinawa">
+              </div>
+              
+              <div>
+                <h4 class="productName">Okinawa</h4>
+              </div>
+            </div>
+
+          </div>
+        </section> <!-- end of milktea section -->
+
+        <section class="frappe optionContainer">
+          <h3>Frappe</h3>
+          <hr/>
+          <div class="productlist productlist_scrollable">
+    
+              <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+                <div class="productImg__alt">
+                  <img class="productImg" src="../../public/frappe-hazelnut.png" alt="hazelnut">
+                </div>
+                
+                <div>
+                  <h4 class="productName">Hazelnut</h4>
+                </div>
+              </div>
+    
+              <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+                <div class="productImg__alt">
+                  <img class="productImg" src="../../public/frappe-cookies&cream.png" alt="cookies_&_cream">
+                </div>
+                
+                <div>
+                  <h4 class="productName">Cookies & Cream</h4>
+                </div>
+              </div>
+    
+              <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+                <div class="productImg__alt">
+                  <img class="productImg" src="../../public/frappe-caramelMacchiato.png" alt="caramel_macchiato">
+                </div>
+                
+                <div>
+                  <h4 class="productName">Caramel Macchiato</h4>
+                </div>
+              </div>
+
+              <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+                <div class="productImg__alt">
+                  <img class="productImg" src="../../public/frappe-vanilla.png" alt="vanilla">
+                </div>
+                
+                <div>
+                  <h4 class="productName">Vanilla</h4>
+                </div>
+              </div>
+
+              <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+                <div class="productImg__alt">
+                  <img class="productImg" src="../../public/frappe-mocha.png" alt="mocha">
+                </div>
+                
+                <div>
+                  <h4 class="productName">Mocha</h4>
+                </div>
+              </div>
+
+          </div>
+        </section> <!-- end of frappe section -->
+
+        <section class="bakedgoods optionContainer">
+          <h3>Pastries & Baked Goods</h3>
+          <hr/>
+          <div class="productlist productlist_scrollable">
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/bakedgoods-minifruitGalettes.png" alt="mini_fruit_galettes">
+              </div>
+              
+              <div>
+                <h4 class="productName">Mini Fruit Galettes</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/bakedgoods-cinnamonRoll.png" alt="cinnamon_roll">
+              </div>
+              
+              <div>
+                <h4 class="productName">Cinnamon Roll</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/bakedgoods-lemonlavenderScones.png" alt="lemon_lavender_scones">
+              </div>
+              
+              <div>
+                <h4 class="productName">Lemon Lavender Scones</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/bakedgoods-matchaMuffin.png" alt="matcha_muffin">
+              </div>
+              
+              <div>
+                <h4 class="productName">Matcha Muffins</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/bakedgoods-chocolatechipBrownies.png" alt="chocolate_chip_brownies">
+              </div>
+              
+              <div>
+                <h4 class="productName">Chocolate Chip Brownies</h4>
+              </div>
+            </div>
+
+        </div>
+          </div>
+        </section> <!-- end of bakedgoods section -->
+
+        <section class="lightmeal optionContainer">
+          <h3>Sandwiches & Light Meals</h3>
+          <hr/>
+          <div class="productlist productlist_scrollable">
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/lightmeal-classicclubSandwich.png" alt="classic_club_sandwich">
+              </div>
+              
+              <div>
+                <h4 class="productName">Classic Club Sandwich</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/lightmeal-eggsaladSandwich.png" alt="egg_salad_sandwich">
+              </div>
+              
+              <div>
+                <h4 class="productName">Egg Salad Sandwich</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/lightmeal-pestochickenSandwich.png" alt="pesto_chicken_sandwich">
+              </div>
+              
+              <div>
+                <h4 class="productName">Chicken Pesto Sandwich</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/lightmeal-avocadotoastTrio.png" alt="avocado_toast_trio">
+              </div>
+              
+              <div>
+                <h4 class="productName">Avocado Toast Trio</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/lightmeal-tunasaladLettucewrap.png" alt="tuna_salad_lettuce_wrap">
+              </div>
+              
+              <div>
+                <h4 class="productName">Tuna Salad Lettuce Wrap</h4>
+              </div>
+            </div>
+
+          </div>
+        </section> <!-- end of lightmeal section -->
+
+        <section class="healthyOp optionContainer">
+          <h3>Salad and Healthy Options</h3>
+          <hr/>
+          <div class="productlist productlist_scrollable">
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/healthyOp-caesarSalad.png" alt="ccaesar_salad">
+              </div>
+              
+              <div>
+                <h4 class="productName">Caesar Salad</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/healthyOp-gardenSalad.png" alt="garden_salad">
+              </div>
+              
+              <div>
+                <h4 class="productName">Garden Salad</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/healthyOp-tofuSalad.png" alt="tofu_salad">
+              </div>
+              
+              <div>
+                <h4 class="productName">Tofu Salad</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/healthyOp-wholewheatTunawrap.png" alt="whole_wheat_tuna_wrap">
+              </div>
+              
+              <div>
+                <h4 class="productName">Whole Wheat Tuna Wrap</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/healthyOp-smoothieBowl.png" alt="smoothie_bowl">
+              </div>
+              
+              <div>
+                <h4 class="productName">Smoothie Bowl</h4>
+              </div>
+            </div>
+
+          </div>
+        </section> <!-- end of healthyOp section -->
+
+        <section class="snacks optionContainer">
+          <h3>Snacks</h3>
+          <hr/>
+          <div class="productlist productlist_scrollable">
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/snacks-miniBeefEmpanada.png" alt="mini_beef_empanada">
+              </div>
+              
+              <div>
+                <h4 class="productName">Mini Beef Empanada</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/snacks-miniMacaron.png" alt="mini_macaron">
+              </div>
+              
+              <div>
+                <h4 class="productName">Mini Macaron</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/snacks-softpretzelBites.png" alt="soft_pretzel_bites">
+              </div>
+              
+              <div>
+                <h4 class="productName">Soft Pretzel Bites</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/snacks-crispybakedChickpeas.png" alt="crispy_baked_chickpeas">
+              </div>
+              
+              <div>
+                <h4 class="productName">Crispy Baked Chickpeas</h4>
+              </div>
+            </div>
+
+            <div onclick="location.href='#cart'" class="productCard lazycontainer loading" tabindex="0">
+              <div class="productImg__alt">
+                <img class="productImg" src="../../public/snacks-almondbutterRiceCrispyBars.png" alt="almond_butter_rice_crispy_bars">
+              </div>
+              
+              <div>
+                <h4 class="productName">Almond Butter Rice Crispy Bars</h4>
+              </div>
+            </div>
+
+          </div>
+        </section> <!-- end of snacks section -->
+
+        </section> <!-- end of foodOptions_productsContainer -->
+
+      </section> <!-- end of foodOption container section -->
+      </main>
+
+      <footer class="footer container section">
+        <hr class="footer__hr" />
+        <div>
+          <img class="footer__logo" src="../../public/footer_logo.png" alt="logo2">
+        </div>
+
+        <div class="footer__socials">
+          <a class="footer__link" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" fill="inherit" d="M375.992 128h-39.984c-8.844 0-16 7.156-16 16v32.004c0 8.828 7.156 15.984 16 15.984h45.961c22.656 0 37.406 19.339 33.062 42.515l-8.984 47.918c-3.93 21.008-23.828 37.586-44.547 37.586h-25.492c-8.844 0-16 7.156-16 15.984v136.015c0 22.086-17.922 39.984-40.008 39.984-.305.023-26.422 0-40 0-8.828 0-16.008-7.156-16.008-16 0-8.828 7.18-16 16.008-16h32c8.844 0 16-7.156 16-15.984V328.007c0-22.102 17.906-40.008 40.008-40.008h28.914c8.328 0 16.852-6.648 19.07-15.031l8.484-31.953c2.477-9.309-2.812-17.023-11.852-17.023h-44.617c-22.102 0-40.008-17.902-40.008-40.003V136c0-22.102 17.906-40.003 40.008-40.003h39.984c8.844 0 16-7.16 16-16.004V47.988c0-8.824-7.156-15.984-16-15.984h-63.984c-44.188 0-80.016 35.809-80.016 79.992v71.992c0 22.101-17.898 40.003-39.984 40.003h-23.625c-9.039 0-16.383 7.715-16.383 17.023v31.953c0 8.383 6.75 15.031 15.07 15.031h24.938c22.086 0 39.984 17.906 39.984 40.008v39.983c0 8.844-7.156 16.008-15.984 16.008-8.844 0-16-7.164-16-16.008V335.99c0-8.828-7.172-15.984-16-15.984h-26.5c-20.719 0-37.508-16.578-37.508-37.586v-47.918c0-23.176 18.367-42.515 41.023-42.515h22.984c8.828 0 16-7.156 16-15.984v-72.008C192.008 46.555 238.562 0 296 0h79.992C398.094 0 416 17.902 416 39.988v48.004C416 110.093 398.094 128 375.992 128zM208.008 415.998c8.828 0 15.984 7.156 15.984 16 0 8.828-7.156 16.008-15.984 16.008-8.844 0-16-7.18-16-16.008 0-8.844 7.156-16 16-16z"/></svg>
+          </a>
+
+          <a class="footer__link" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" fill="inherit" d="M384.004 80.011V111.995c0 8.844 7.172 16 16.001 16H432.006c8.828 0 16.008 7.176 16.008 16.004 0 8.844-7.18 16.004-16.008 16.004h-40.002c-20.977 0-38.017-16.219-39.688-36.777-.086-1.078-.32-2.117-.32-3.23V80.011c0-8.848 7.18-16.004 16-16.004 8.844 0 16.008 7.157 16.008 16.004zM127.996 271.994c0-8.82 7.157-16 16-16 8.829 0 16 7.18 16 16 0 8.844-7.172 16.008-16 16.008-8.843 0-16-7.164-16-16.008zM256 384.009c-34.782 0-66.252-13.898-89.323-36.414-3.57-2.93-5.921-7.344-5.921-12.344 0-8.828 7.164-15.999 15.984-15.999 4.43 0 8.414 1.789 11.321 4.694l.055-.055C205.484 341.282 229.484 352 256.001 352c48.416 0 88.314-35.858 94.917-82.444l.125.016c1.383-8.648 9.406-14.656 18.102-13.398 8.743 1.273 14.806 9.383 13.548 18.141-.125.844-.359 1.641-.609 2.438-9.939 60.81-62.473 107.256-126.084 107.256zm239.999-96.007c-8.828 0-15.984-7.164-15.984-16.008 0-8.82 7.156-16 15.984-16 8.845 0 16.001 7.18 16.001 16 0 8.844-7.156 16.008-16.001 16.008zM416.005 512H95.995C42.985 512 0 469.023 0 415.993V255.994c0-35.339 28.649-63.992 63.986-63.992h64.009c10.477 0 19.79-5.039 25.642-12.844.141-.18.32-.285.484-.43 23.352-30.8 60.236-50.734 101.878-50.734 41.635 0 78.525 19.934 101.878 50.734.164.145.344.25.484.43 5.852 7.805 15.165 12.844 25.642 12.844h64.01c17.664 0 32.001-14.332 32.001-32V96.011c0-35.359-28.665-64.007-64.01-64.007H95.995c-35.345 0-63.994 28.648-63.994 64.007v47.988c0 8.844-7.172 16.004-16 16.004-8.844 0-16-7.16-16-16.004V96.011C0 42.984 42.985 0 95.995 0h320.01C469.014 0 512 42.984 512 96.011V160.003c0 35.339-28.649 64.003-63.986 64.003h-64.01c-20.923 0-39.486-10.042-51.166-25.562-.094-.125-.219-.145-.305-.25-17.492-23.195-45.228-38.191-76.533-38.191-31.29 0-59.064 14.996-76.534 38.191-.094.105-.219.125-.305.25-11.665 15.52-30.243 25.562-51.166 25.562h-64.01C46.32 224.006 32 238.322 32 255.994v159.999C32.001 451.352 60.65 480 95.995 480h320.01c35.345 0 64.01-28.648 64.01-64.007v-79.992c0-8.844 7.156-15.999 15.984-15.999 8.845 0 16.001 7.155 16.001 15.999v79.992c0 53.03-42.986 96.007-95.995 96.007z"/></svg>
+          </a>
+
+          <a class="footer__link" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"  xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" fill="inherit" d="M512 107.867c0 7.031-2.203 13.527-5.977 18.836-10.062 15.051-23.727 25.977-37.367 37.422a15.803 15.803 0 0 0-4.805 10.531c-1.523 69.156-27.141 148.246-72.78 200.512-54.586 62.49-129 104.881-215.078 104.881-8.824 0-16-7.172-16-16 0-8.844 7.176-16 16-16 158.555 0 244.944-138.6 255.007-256.924.469-1.652.758-3.785.758-6.816 0-1.008.016-2.012.07-2.996.789-13.796 6.961-26.156 16.43-35.019.469-.449.828-.859 1.172-1.273 11.555-11.375 22.211-24.668 30.461-37.152-11.719 5.258-24.078 9.238-36.922 11.93-2.148 0-3.961-1.812-3.961-4a3.98 3.98 0 0 1 1.164-2.816c.031-.035-.109.016-.125.016 12.609-11.012 22.281-25.402 27.484-41.816-8.469 5.059-17.406 9.418-26.68 13.098-5.992 2.387-12.5 3.766-19.359 3.766-10.672 0-20.593-3.211-28.843-8.719-.32-.215-.648-.359-.969-.555-13.672-9.184-29.617-14.711-47.68-14.711l-1.883.34c-39.742 0-69.945 22.406-81.234 56.707-.317.147-3.551 14.406-3.875 16.453-2.996 19.121-19.535 33.742-39.504 33.742a37.59 37.59 0 0 1-6.387-.539c-52.472-9.812-99.847-32.504-135.207-69.406-.215-.18-.379-.234-.684-.539-4.68-4.684-12.27-4.684-16.969 0a12.307 12.307 0 0 0-2.531 3.73c-.141.344-.23.344-.34.414-4.27 9.867-7.391 20.539-7.391 31.09 0 21.832 8.879 41.761 22.227 57.601 0 .02-.16-.07-.09 0a8.005 8.005 0 0 1 1.867 5.148c0 4.414-3.59 8-8.004 8-.879 0-1.703-.23-2.492-.5a15.06 15.06 0 0 0-.375-.16c-.145.051-.305.125-.559 0a7.903 7.903 0 0 0-3.566-.844c-4.344 0-7.859 3.516-7.969 7.82 4.164 28.469 21.637 53.676 45.227 68.458-.305-.031-.484-.031-.375.031a8.019 8.019 0 0 1 3.621 6.695c0 4.414-3.586 8-8 8-.09 0-.18-.016-.27-.016-.105-.023-.195-.055-.305-.07-.285-.039-.555-.094-.844-.125-2.152.109-3.84 1.812-3.84 3.961a3.8 3.8 0 0 0 .395 1.742c6.512 16.219 17.527 30.078 31.395 40.219.164.125.199.234.395.375 1.184.844 2.297 1.812 3.375 2.875 10.922 10.922 10.922 28.648 0 39.594-3.355 3.328-7.34 5.664-11.555 6.953-.035.016-.016 0-.055.016-16.395 5.203-33.762 8.219-52.203 8.219h-9.992c-2.207 0-4 1.797-4 4 0 1.297.645 2.375 1.578 3.094 6.586 3.906 13.332 7.727 20.344 11.281l-.016.016c4.715 2.639 7.965 7.623 7.965 13.436 0 8.523-6.906 15.43-15.43 15.43-3.48 0-6.672-1.203-9.258-3.141-11.211-5.867-22.082-12.148-32.414-18.836-12.59-8.142-17.938-23.986-12.879-38.197 4.594-12.992 16.703-19.086 30.105-19.086 5.953.719 17.902 0 24 0 12.289 0 22.355-2.531 33.996-5.344-17.473-14.82-30.965-34.555-38.266-57.57a32.619 32.619 0 0 1-.645-17.398c-20.648-22.531-35.089-55.293-35.089-87.672.16-8.02 5.273-14.711 10.496-20.434-5.059-13.761-10.496-28.433-10.496-43.574 0-22.137 8.558-43.969 19.554-63.004 5.309-9.184 17.957-16.164 28.449-16.988 9.598 0 18.031 5.273 24.148 12.844 30.176 37.352 77.406 57.426 123.871 68.906.789.141 1.633.25 2.477.25 7.625 0 13.938-5.293 15.59-12.434C242.817 71.844 284.563 32 342.118 32c24.344 0 48.078 7.34 68.147 20.633 3.125 1.973 6.766 3.176 10.727 3.176 1.758 0 3.445-.289 5.039-.719 8.672-3.23 17.117-6.98 25.117-11.785 5.078-3.035 10.727-3.266 16.359-3.266 7.109 0 14.195 1.129 20.008 5.793 10.422 8.379 14.633 22.391 10.562 35.199 0 .035-.016.07-.016.105A32.493 32.493 0 0 1 512 107.867zM31.998 368.043c-1.258-.141 1.253 0 0 0zm32-311.984c-.825 0 .828-.075 0 0zm56.007 383.99c8.828 0 16.004 7.156 16.004 16 0 8.828-7.176 16-16.004 16-8.844 0-16-7.172-16-16 0-8.844 7.157-16 16-16z"/></svg>
+          </a>
+        </div>
+
+          <h5>Site by John Erick Camota</h5>
+        </div>
+      </footer>
+
+    <script type="module" src="./src/menu.js"></script>
+  </body>
+</html>
