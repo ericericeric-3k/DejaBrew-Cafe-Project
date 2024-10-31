@@ -6,7 +6,7 @@ import { openItemcard, openSelectitem, openItemvariant} from './utility.js';
 const checkEntry = () => {
     document.addEventListener('DOMContentLoaded', () => {
         let value = localStorage.getItem('tempValue');
-        let value2 = localStorge.getItem('totalPrice');
+        let value2 = localStorage.getItem('totalPrice');
         localStorage.removeItem('tempValue');
         console.log(value);
         console.log(value2);
