@@ -5,7 +5,8 @@ import { openItemcard, openSelectitem, openItemvariant} from './utility.js';
 
 const checkEntry = () => {
     document.addEventListener('DOMContentLoaded', () => {
-        const value = localStorage.getItem('tempValue');
+        let value = localStorage.getItem('tempValue');
+        let value2 = localStorge.geetItem('totalPrice');
         localStorage.removeItem('tempValue');
         console.log(value);
 
@@ -18,6 +19,15 @@ const checkEntry = () => {
             openSelectitem(product, value);
             openItemvariant(itemvariant, value);
         }
+
+        const total = document.querySelector('.totalPrice');
+
+        if(value2 !== null) {
+            total.textContent = value2;
+        } else {
+            total.textContent = '0';
+        }
+        
     });
 };
 
