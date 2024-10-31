@@ -25,7 +25,7 @@ const checkEntry = () => {
         if(value2 !== null) {
             total.textContent = value2;
         } else {
-            total.textContent = '0';
+            total.textContent = "0";
         }
         
     });
