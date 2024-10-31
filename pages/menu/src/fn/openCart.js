@@ -202,11 +202,11 @@ function xpress() {
         let totalprc;
 
         store.forEach(item => {
-            index = item.dataset.ind;
+            index = Number(item.dataset.ind);
             vary = item.dataset.variant;
-            quantity = item.dataset.qty;
-            prc = item.dataset.price;
-            totalprc = item.dataset.total;
+            quantity = Number(item.dataset.qty);
+            prc = Number(item.dataset.price);
+            totalprc = Number(item.dataset.total);
 
             variable = {ind: index, variant: vary, details: {price: prc, qty: quantity, total:totalprc}};
             cart.push(variable);
