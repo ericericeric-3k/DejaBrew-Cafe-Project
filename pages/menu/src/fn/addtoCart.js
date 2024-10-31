@@ -327,6 +327,9 @@ const tothe_Cart = () => {
 
         // console.log(cart);
         toCart.textContent = "Added to Cart";
+        setTimeout(() => {
+            toCart.textContent = "Add to Cart";
+        }, 1800);
     });
 };
 
