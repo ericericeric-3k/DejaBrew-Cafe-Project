@@ -294,6 +294,7 @@ const tothe_Cart = () => {
 
     toCart.addEventListener('click', () => {
         retrieveCart = localStorage.getItem('cart');
+        let totalPriceStore = localStorage.getItem('totalPrice');
         console.log(retrieveCart);
 
         itemCard = document.querySelector('.itemSelect__item.itemSelect__display');
@@ -306,12 +307,16 @@ const tothe_Cart = () => {
         storeonClick = [{ind: index, variant: variantClk, details: {price: priceClk, qty: quantity, total:totalprice}}];
         store = {ind: index, variant: variantClk, details: {price: priceClk, qty: quantity, total:totalprice}};
 
+        let newTotal = totalprice;
+        console.log("start-click: ", newTotal);
+        
         if(retrieveCart !== null){
             retrieveCart = JSON.parse(retrieveCart);
             Cartlength = retrieveCart.length;
             hasSimilarkey = checkCart(retrieveCart, Cartlength, index, variantClk);
 
             if(hasSimilarkey !== null){
+                totalPriceStore = Number(totalPriceStore) - retrieveCart[hasSimilarkey].details.total;
                 retrieveCart[hasSimilarkey] = store;
                 cart = JSON.stringify(retrieveCart);
 
@@ -319,10 +324,18 @@ const tothe_Cart = () => {
                 retrieveCart.unshift(store);
                 cart = JSON.stringify(retrieveCart);
             }
+
+            newTotal += Number(totalPriceStore);
         } else {
             cart = JSON.stringify(storeonClick);
         }
 
+
+        const pricedisplay = document.querySelector('.totalPrice');  
+        pricedisplay.textContent = newTotal;
+        localStorage.setItem('totalPrice', newTotal);
+        
+        
         localStorage.setItem('cart', cart);
 
         // console.log(cart);
