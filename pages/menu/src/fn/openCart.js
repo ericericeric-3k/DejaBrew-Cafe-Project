@@ -118,23 +118,7 @@ function staticbg(mode) {
     document.body.style.overflowY = mode;
 }
 
-function total_pr(cart) {
-    let tp = document.querySelector('.totalPrice');
 
-    if(cart){
-        let price = 0;
-        let txt = 'Php '
-        for(let i = 0; i < cart.length; i++){
-            price = price + Number(cart[i].details.total);
-        }
-        txt += price;
-        tp.textContent = txt;
-        
-    } else {
-        return tp.textContent = 'Php 0';
-    }
-
-}
 
 function clicksubmit(event) {
     const cartsubmit = document.querySelector('.cart_submitbtn')
@@ -156,11 +140,9 @@ const openCart = () => {
         if(retrieved !== null){
             cart = JSON.parse(retrieved);
             alterCart(cart);
-            total_pr(cart);
             removePlaceholder();
-        } else {
-            total_pr(null);
-        }
+        } 
+        
         staticbg('hidden');
         openCart_container();
     });
