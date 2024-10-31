@@ -9,6 +9,7 @@ const checkEntry = () => {
         let value2 = localStorge.getItem('totalPrice');
         localStorage.removeItem('tempValue');
         console.log(value);
+        console.log(value2);
 
         if(value !== null){
             const itemcard = document.querySelector('#itemCard');
@@ -21,7 +22,7 @@ const checkEntry = () => {
         }
 
         const total = document.querySelector('.totalPrice');
-
+        console.log(total);
         if(value2 !== null) {
             total.textContent = value2;
         } else {
