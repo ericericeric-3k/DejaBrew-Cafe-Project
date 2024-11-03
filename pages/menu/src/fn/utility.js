@@ -135,7 +135,6 @@ const openDisplay = () => {
     const items = document.querySelectorAll('.itemSelect__item');
     const itemvariant = document.querySelectorAll('.itemSelect__varbtn');
     const orderpost = document.querySelector('#order-start');
-    const addtocart = document.querySelector('.itemSelect__item.itemSelect__display');
     
 
     productcard.forEach((pcard, index) => {
@@ -149,7 +148,6 @@ const openDisplay = () => {
             openItemcard(itemcard);
             openSelectitem(items, index);
             openItemvariant(itemvariant, index);
-            addtocart.textContent = "Add to Cart";
 
         });
     });
